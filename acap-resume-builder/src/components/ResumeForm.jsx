@@ -1,18 +1,56 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ResumeContext } from '../context/ResumeContext';
+
+// Check for browser support
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = SpeechRecognition ? new SpeechRecognition() : null;
+if (recognition) {
+  recognition.continuous = true;
+  recognition.interimResults = true;
+}
 
 const ResumeForm = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
+  const [isRecording, setIsRecording] = useState(null); // Use index to track which description is recording
+
+  const handleSpeech = (index) => {
+    if (isRecording === index) {
+      recognition.stop();
+      setIsRecording(null);
+      return;
+    }
+
+    if (!recognition) {
+      alert("Sorry, your browser doesn't support speech recognition.");
+      return;
+    }
+
+    setIsRecording(index);
+    recognition.start();
+
+    recognition.onresult = (event) => {
+      let finalTranscript = '';
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          finalTranscript += event.results[i][0].transcript;
+        }
+      }
+      if (finalTranscript) {
+        const list = [...resumeData.experience];
+        const currentDescription = list[index].description || '';
+        list[index].description = currentDescription + (currentDescription ? ' ' : '') + finalTranscript.trim();
+        setResumeData((prevData) => ({ ...prevData, experience: list }));
+      }
+    };
+
+    recognition.onend = () => {
+        setIsRecording(null);
+    };
+  };
 
   const handlePersonalInfoChange = (e) => {
     const { name, value } = e.target;
-    setResumeData((prevData) => ({
-      ...prevData,
-      personalInfo: {
-        ...prevData.personalInfo,
-        [name]: value,
-      },
-    }));
+    setResumeData((prevData) => ({ ...prevData, personalInfo: { ...prevData.personalInfo, [name]: value } }));
   };
 
   const handleSectionChange = (section, index, e) => {
@@ -23,10 +61,7 @@ const ResumeForm = () => {
   };
 
   const addSectionItem = (section, item) => {
-    setResumeData((prevData) => ({
-      ...prevData,
-      [section]: [...prevData[section], item],
-    }));
+    setResumeData((prevData) => ({ ...prevData, [section]: [...prevData[section], item] }));
   };
 
   const removeSectionItem = (section, index) => {
@@ -43,10 +78,7 @@ const ResumeForm = () => {
   };
 
   const addSkill = () => {
-    setResumeData((prevData) => ({
-      ...prevData,
-      skills: [...prevData.skills, ''],
-    }));
+    setResumeData((prevData) => ({ ...prevData, skills: [...prevData.skills, ''] }));
   };
 
   const removeSkill = (index) => {
@@ -75,10 +107,13 @@ const ResumeForm = () => {
             <input type="text" name="startDate" placeholder="Start Date" value={exp.startDate} onChange={(e) => handleSectionChange('experience', index, e)} />
             <input type="text" name="endDate" placeholder="End Date" value={exp.endDate} onChange={(e) => handleSectionChange('experience', index, e)} />
             <textarea name="description" placeholder="Description" value={exp.description} onChange={(e) => handleSectionChange('experience', index, e)} />
-            <button type="button" onClick={() => removeSectionItem('experience', index)}>Remove</button>
+            <button type="button" onClick={() => handleSpeech(index)} disabled={!recognition}>
+              {isRecording === index ? '🛑 Stop Recording' : '🎤 Tell Me About This Role'}
+            </button>
+            <button type="button" onClick={() => removeSectionItem('experience', index)}>Remove This Experience</button>
           </div>
         ))}
-        <button type="button" onClick={() => addSectionItem('experience', { jobTitle: '', company: '', location: '', startDate: '', endDate: '', description: '' })}>Add Experience</button>
+        <button type="button" onClick={() => addSectionItem('experience', { jobTitle: '', company: '', location: '', startDate: '', endDate: '', description: '' })}>Add Another Experience</button>
 
         <h2>Education</h2>
         {resumeData.education.map((edu, index) => (
