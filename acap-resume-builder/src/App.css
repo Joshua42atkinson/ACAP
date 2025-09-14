@@ -242,6 +242,7 @@ body {
 .chat-message {
   margin-bottom: 15px;
   display: flex;
+  align-items: center; /* Vertically center button with text */
 }
 
 .chat-message p {
@@ -287,6 +288,12 @@ body {
   margin-left: 10px;
   border-radius: 20px;
   cursor: pointer;
+}
+
+.chat-input-form .mic-button {
+    background-color: transparent;
+    color: var(--primary-color);
+    padding: 0 10px;
 }
 
 .chapter-nav {
