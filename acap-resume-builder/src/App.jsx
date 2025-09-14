@@ -7,6 +7,7 @@ import './App.css';
 
 function App() {
   const [storyMode, setStoryMode] = useState(true);
+  const [currentChapter, setCurrentChapter] = useState(1);
 
   const toggleStoryMode = () => {
     setStoryMode(!storyMode);
@@ -32,7 +33,12 @@ function App() {
         </header>
         <main className="App-main">
           <div className="left-panel">
-            {storyMode && <StoryMode />}
+            {storyMode && (
+              <StoryMode
+                currentChapter={currentChapter}
+                setCurrentChapter={setCurrentChapter}
+              />
+            )}
             <ResumeForm />
           </div>
           <ResumePreview />
