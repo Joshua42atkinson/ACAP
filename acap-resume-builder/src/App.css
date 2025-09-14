@@ -1,0 +1,119 @@
+:root {
+  --primary-color: #282c34;
+  --secondary-color: #61dafb;
+  --background-color: #f7f7f7;
+  --text-color: #333;
+  --border-color: #ddd;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: var(--primary-color);
+  padding: 15px 30px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.App-header button {
+  padding: 8px 12px;
+  border: 1px solid var(--secondary-color);
+  background-color: transparent;
+  color: var(--secondary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.App-header button:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.App-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px;
+  align-items: flex-start;
+}
+
+.left-panel {
+  width: 48%;
+  max-width: 600px;
+}
+
+.story-mode {
+  padding: 20px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: #f0f8ff;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.resume-form {
+  padding: 30px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-align: left;
+  background-color: #fff;
+}
+
+.resume-form h2 {
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.form-section {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-section input, .form-section textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.resume-preview {
+  width: 48%;
+  max-width: 600px;
+  padding: 30px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-align: left;
+  background-color: #fff;
+}
+
+.section-preview h4 {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
