@@ -11,14 +11,28 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
-  background-image: linear-gradient(to bottom, #F4F3EE, #EAE8E1);
   color: var(--text-color);
   margin: 0;
 }
 
 .App {
   text-align: center;
+  min-height: 100vh;
+  transition: background-image 0.5s ease-in-out;
 }
+
+.chapter-theme-1 { background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); }
+.chapter-theme-2 { background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); }
+.chapter-theme-3 { background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%); }
+.chapter-theme-4 { background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); }
+.chapter-theme-5 { background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%); }
+.chapter-theme-6 { background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); }
+.chapter-theme-7 { background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%); }
+.chapter-theme-8 { background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); }
+.chapter-theme-9 { background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);}
+.chapter-theme-10 { background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); }
+.chapter-theme-11 { background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%); }
+.chapter-theme-12 { background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%); }
 
 .App-header {
   background-color: var(--primary-color);

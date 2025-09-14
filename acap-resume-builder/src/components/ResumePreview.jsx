@@ -41,6 +41,7 @@ const ResumePreview = () => {
             <h6>{exp.company || 'Company'} - {exp.location || 'Location'}</h6>
             <p>{exp.startDate || 'Start Date'} - {exp.endDate || 'End Date'}</p>
             <p>{exp.description || 'Job description goes here.'}</p>
+            {exp.achievement && <p><strong>Achievement:</strong> {exp.achievement}</p>}
           </div>
         ))}
       </div>

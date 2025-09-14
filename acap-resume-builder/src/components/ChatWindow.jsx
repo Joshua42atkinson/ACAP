@@ -12,7 +12,17 @@ if (recognition) {
 
 const conversationScripts = {
   1: { type: 'linear', script: [ { question: "Welcome! I am the Great Recycler. To start our journey, what is your full name?", field: 'personalInfo.name' }, { question: "A wonderful name. What is your email address?", field: 'personalInfo.email' }, { question: "Thank you. And your phone number?", field: 'personalInfo.phone' }, { question: "Great. Lastly, what is your address?", field: 'personalInfo.address' }, { question: "Perfect! We've set the stage. Click 'Next Chapter' when you're ready.", field: null } ] },
-  2: { type: 'loop', section: 'experience', script: [ { question: "Let's talk about a work experience. What was the job title?", field: 'jobTitle' }, { question: "And what was the name of the company?", field: 'company' }, { question: "Can you tell me a little about what you did in that role?", field: 'description' } ], closingQuestion: "Would you like to add another work experience? (yes/no)" },
+  2: {
+    type: 'loop',
+    section: 'experience',
+    script: [
+      { question: "Let's talk about a work experience. What was the job title?", field: 'jobTitle' },
+      { question: "And what was the name of the company?", field: 'company' },
+      { question: "Can you tell me a little about what you did in that role? Just a general description is a great start.", field: 'description' },
+      { question: "That's a great start. Now for a quest: Can you think of a specific achievement or number that shows your impact? For example, 'I helped 20 customers per day' or 'I organized a filing system that saved 1 hour per week'. This can be tough, but it's what makes a resume stand out.", field: 'achievement' }
+    ],
+    closingQuestion: "Would you like to add another work experience? (yes/no)"
+  },
   3: { type: 'loop', section: 'education', script: [ { question: "Now for your education. What was the degree or certificate you received?", field: 'degree' }, { question: "What was the name of the school or institution?", field: 'school' } ], closingQuestion: "Would you like to add another educational experience? (yes/no)" },
   4: { type: 'loop', section: 'skills', script: [ { question: "Let's list some of your skills. What is one thing you are good at?", field: 'skill' } ], closingQuestion: "Would you like to add another skill? (yes/no)" },
   5: { type: 'linear', script: [{ question: "Reviewing your draft. This is the 'Ordeal' chapter where we bring it all together. Click Next when ready.", field: null }] },
