@@ -138,15 +138,41 @@ body {
     color: white;
 }
 
+.resume-preview-container {
+    /* Styles for the container of the selector and preview */
+}
+
+.template-selector {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.template-selector h3 {
+    margin: 0;
+    font-size: 1em;
+}
+
+.template-selector button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .resume-preview {
-  width: 48%;
-  max-width: 800px;
+  width: 100%;
   padding: 60px;
   border: 1px solid #ccc;
   text-align: left;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  font-family: 'Times New Roman', Times, serif;
 }
 
 .resume-preview .personal-info-preview h3 {
