@@ -1,20 +1,26 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { ResumeProvider } from './context/ResumeContext';
-import ChapterLayout from './components/ChapterLayout';
-import Chapter from './pages/Chapter';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import CourseModules from './pages/CourseModules';
+import ResourceHub from './pages/ResourceHub';
+import CommunityForum from './pages/CommunityForum';
+import Module from './pages/Module';
+import NavBar from './components/NavBar';
 import './App.css';
 
 function App() {
   return (
-    <ResumeProvider>
-      <Routes>
-        <Route path="/" element={<ChapterLayout />}>
-          <Route index element={<Navigate to="/chapter/1" replace />} />
-          <Route path="chapter/:chapterId" element={<Chapter />} />
-        </Route>
+    <div>
+      <NavBar />
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+        <Route path="/modules" element={<CourseModules />} />
+        <Route path="/modules/:moduleId" element={<Module />} />
+        <Route path="/resources" element={<ResourceHub />} />
+        <Route path="/forum" element={<CommunityForum />} />
       </Routes>
-    </ResumeProvider>
+    </div>
   );
 }
 
