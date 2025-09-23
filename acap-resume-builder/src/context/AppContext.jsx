@@ -1,6 +1,5 @@
-import React, { createContext, useState } from 'react';
-
-export const AppContext = createContext();
+import React, { useState } from 'react';
+import { AppContext } from './appContextObject';
 
 export const AppProvider = ({ children }) => {
   const [aiMode, setAiMode] = useState(false);

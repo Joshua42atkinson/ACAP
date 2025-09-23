@@ -1,7 +1,6 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
-
-export const ResumeContext = createContext();
+import { ResumeContext } from './resumeContextObject';
 
 export const ResumeProvider = ({ children }) => {
   const initialData = {

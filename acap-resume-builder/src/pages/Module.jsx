@@ -5,15 +5,16 @@ import { useParams, Link } from 'react-router-dom';
 const moduleData = {
   '1': {
     title: 'Module 1: Build Your Resume',
-    objective: 'The goal of this module is for you to construct a powerful, tailored resume through a process of discovery and peer interaction.',
-    activities: [
-      { id: '1-1', title: 'Activity: Deconstructing Job Descriptions', description: 'Learn to analyze job descriptions to identify key skills and keywords.' },
-      { id: '1-2', title: 'Activity: Brainstorming Your "Experience Inventory"', description: 'Create a master document of your skills and accomplishments.' },
-      { id: '1-3', title: 'Activity: Peer Resume Review', description: 'Give and receive constructive feedback on your newly tailored resume.' },
-      { id: '1-4', title: 'Yin Point: Reflection on Professional Identity', description: 'Reflect on your personal value beyond your professional life.' },
-    ]
+    objective: 'Learn how to build a powerful, tailored resume.',
   },
-  // Data for modules 2 and 3 would go here
+  '2': {
+    title: 'Module 2: Build Your Network',
+    objective: 'Develop skills to proactively network and find opportunities.',
+  },
+  '3': {
+    title: 'Module 3: Demonstrate Your Value',
+    objective: 'Master interviewing and follow-up techniques.',
+  }
 };
 
 function Module() {
@@ -29,15 +30,12 @@ function Module() {
       <h1>{module.title}</h1>
       <p><em>{module.objective}</em></p>
 
-      <h2>Module Activities</h2>
-      <ul>
-        {module.activities.map(activity => (
-          <li key={activity.id}>
-            <strong>{activity.title}:</strong> {activity.description}
-          </li>
-        ))}
-      </ul>
+      <hr />
 
+      {/* Interactive, "chunked" content will be implemented here in a future phase. */}
+      <p>Module content coming soon...</p>
+
+      <br />
       <Link to="/modules">Back to Course Modules</Link>
     </div>
   );
