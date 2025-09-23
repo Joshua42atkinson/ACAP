@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { supabase } from '../supabaseClient';
 
 export const ResumeContext = createContext();
 
@@ -32,30 +33,51 @@ export const ResumeProvider = ({ children }) => {
   };
 
   const [resumeData, setResumeData] = useState(initialData);
+  const [isSaving, setIsSaving] = useState(false);
 
-  // Load data from localStorage on initial render
-  useEffect(() => {
+  const saveResumeToSupabase = async () => {
+    setIsSaving(true);
     try {
-      const savedData = localStorage.getItem('acap-resume-data');
-      if (savedData) {
-        setResumeData(JSON.parse(savedData));
+      const { data, error } = await supabase
+        .from('resumes')
+        .upsert({ id: 1, data: resumeData }, { onConflict: 'id' });
+
+      if (error) {
+        throw error;
       }
+      console.log('Resume saved to Supabase:', data);
     } catch (error) {
-      console.error("Could not load resume data from local storage", error);
+      console.error('Error saving resume to Supabase:', error);
     }
+    setIsSaving(false);
+  };
+
+  useEffect(() => {
+    const loadResumeFromSupabase = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('resumes')
+          .select('data')
+          .eq('id', 1)
+          .single();
+
+        if (error && error.code !== 'PGRST116') { // Ignore 'range not satisfiable' error if no resume exists
+          throw error;
+        }
+
+        if (data) {
+          setResumeData(data.data);
+        }
+      } catch (error) {
+        console.error('Error loading resume from Supabase:', error);
+      }
+    };
+
+    loadResumeFromSupabase();
   }, []);
 
-  // Save data to localStorage whenever it changes
-  useEffect(() => {
-    try {
-      localStorage.setItem('acap-resume-data', JSON.stringify(resumeData));
-    } catch (error) {
-      console.error("Could not save resume data to local storage", error);
-    }
-  }, [resumeData]);
-
   return (
-    <ResumeContext.Provider value={{ resumeData, setResumeData }}>
+    <ResumeContext.Provider value={{ resumeData, setResumeData, saveResumeToSupabase, isSaving }}>
       {children}
     </ResumeContext.Provider>
   );
