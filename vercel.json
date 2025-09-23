@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd acap-resume-builder && vite build",
+  "buildCommand": "cd acap-resume-builder && npm install && npm run build",
   "outputDirectory": "acap-resume-builder/dist",
   "rewrites": [
     {
