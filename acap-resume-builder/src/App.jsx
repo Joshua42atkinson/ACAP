@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { AppProvider, AppContext } from './context/AppContext';
-import { ResumeProvider, ResumeContext } from './context/ResumeContext';
+import { AppProvider } from './context/AppContext';
+import { AppContext } from './context/appContextObject';
+import { ResumeProvider } from './context/ResumeContext';
+import { ResumeContext } from './context/resumeContextObject';
 
 import NavBar from './components/NavBar';
 import AIAssistant from './components/AIAssistant';

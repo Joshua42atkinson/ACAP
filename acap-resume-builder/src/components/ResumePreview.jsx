@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { ResumeContext } from '../context/ResumeContext';
+import { ResumeContext } from '../context/resumeContextObject';
 import ModernTemplate from './templates/ModernTemplate';
 import ClassicTemplate from './templates/ClassicTemplate';
 

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ResumeContext } from '../context/ResumeContext';
+import { ResumeContext } from '../context/resumeContextObject';
 import ChatMessage from './ChatMessage';
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;

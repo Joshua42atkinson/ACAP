@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import ResumePreview from './ResumePreview';
 import AIAssistant from './AIAssistant';
-import { ResumeContext } from '../context/ResumeContext';
-import { AppContext } from '../context/AppContext';
+import { ResumeContext } from '../context/resumeContextObject';
+import { AppContext } from '../context/appContextObject';
 
 const ChapterLayout = () => {
   const { chapterId } = useParams();
