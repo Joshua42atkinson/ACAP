@@ -64,6 +64,21 @@ body {
     color: var(--primary-color);
 }
 
+.save-button {
+  padding: 8px 12px;
+  border: 1px solid var(--secondary-color);
+  background-color: transparent;
+  color: var(--secondary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.save-button:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
 .App-main {
   display: flex;
   flex-direction: row;
@@ -353,4 +368,41 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
+}
+
+.ai-assistant {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: #fff;
+  text-align: left;
+}
+
+.ai-assistant h3 {
+  margin-top: 0;
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 10px;
+}
+
+.ai-assistant button {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.ai-assistant button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.ai-suggestion {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: var(--background-color);
+  border-radius: 5px;
 }

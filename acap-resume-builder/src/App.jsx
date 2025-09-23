@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-// import { AuthProvider } from './context/AuthContext'; // Commented out: AuthContext.jsx is missing
-import { ResumeProvider } from './context/ResumeContext';
+import { AppProvider, AppContext } from './context/AppContext';
+import { ResumeProvider, ResumeContext } from './context/ResumeContext';
 
 import NavBar from './components/NavBar';
+import AIAssistant from './components/AIAssistant';
 import ChapterLayout from './components/ChapterLayout';
 import Home from './pages/Home';
 import CourseModules from './pages/CourseModules';
@@ -15,14 +16,17 @@ import CommunityForum from './pages/CommunityForum';
 
 import './App.css';
 
-function App() {
+function AppContent() {
+  const { aiMode } = useContext(AppContext);
+  const { resumeData } = useContext(ResumeContext);
+
   return (
-    // <AuthProvider> // Commented out: AuthProvider is not available
-      <ResumeProvider>
-        <NavBar />
-        <main className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
+    <>
+      <NavBar />
+      <main className="container">
+        {aiMode && <AIAssistant resumeData={resumeData} />}
+        <Routes>
+          <Route path="/" element={<Home />} />
             <Route path="/modules" element={<CourseModules />} />
             <Route path="/modules/:moduleId" element={<Module />} />
 
@@ -38,7 +42,18 @@ function App() {
             {/* <Route path="/auth" element={<Auth />} /> // Commented out: Auth component is missing */}
           </Routes>
         </main>
+    </>
+  );
+}
+
+function App() {
+  return (
+    // <AuthProvider> // Commented out: AuthProvider is not available
+    <AppProvider>
+      <ResumeProvider>
+        <AppContent />
       </ResumeProvider>
+    </AppProvider>
     // </AuthProvider> // Commented out: AuthProvider is not available
   );
 }

@@ -1,0 +1,10 @@
+{
+  "buildCommand": "cd acap-resume-builder && vite build",
+  "outputDirectory": "acap-resume-builder/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
