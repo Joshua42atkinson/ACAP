@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useResume } from '../context/ResumeContext';
+import { ResumeContext } from '../context/ResumeContext';
 import ChatMessage from './ChatMessage';
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -37,7 +37,7 @@ const conversationScripts = {
 
 const ChatWindow = () => {
   const { chapterId } = useParams();
-  const { resumeData, setResumeData } = useResume();
+  const { resumeData, setResumeData } = useContext(ResumeContext);
 
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState('');
@@ -48,19 +48,13 @@ const ChatWindow = () => {
   const [isListening, setIsListening] = useState(false);
 
   useEffect(() => {
-    if (!resumeData) return; // Wait for resume data to be loaded
-
     const config = conversationScripts[chapterId] || { type: 'linear', script: [{ question: `Content for chapter ${chapterId} coming soon!`, field: null }] };
     setChapterConfig(config);
     setMessages([{ text: config.script[0].question, sender: 'ai' }]);
     setQuestionIndex(0);
-    if (config.type === 'loop' && resumeData[config.section]) {
-      setItemIndex(resumeData[config.section].length || 0);
-    } else {
-      setItemIndex(0);
-    }
+    setItemIndex(config.type === 'loop' ? (resumeData[config.section]?.length || 0) : 0);
     setIsLooping(false);
-  }, [chapterId, resumeData]);
+  }, [chapterId]);
 
   const handleSpeech = () => {
     if (!recognition) return;
@@ -136,10 +130,6 @@ const ChatWindow = () => {
 
   const nextChapterId = parseInt(chapterId, 10) + 1;
   const prevChapterId = parseInt(chapterId, 10) - 1;
-
-  if (!resumeData) {
-    return <div>Loading your resume data...</div>;
-  }
 
   return (
     <div className="chat-window">
