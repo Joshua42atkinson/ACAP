@@ -1,7 +1,9 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import { supabase } from '../supabaseClient';
 
-export const ResumeContext = createContext();
+const ResumeContext = createContext();
+// eslint-disable-next-line react-refresh/only-export-components
+export const useResumeContext = () => useContext(ResumeContext);
 
 export const ResumeProvider = ({ children }) => {
   const initialData = {

@@ -1,6 +1,9 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
-export const AppContext = createContext();
+const AppContext = createContext();
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useAppContext = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
   const [aiMode, setAiMode] = useState(false);

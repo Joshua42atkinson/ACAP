@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
-import { ResumeContext } from '../context/ResumeContext';
+import React, { useState } from 'react';
+import { useResumeContext } from '../context/ResumeContext';
 import ModernTemplate from './templates/ModernTemplate';
 import ClassicTemplate from './templates/ClassicTemplate';
 
 const ResumePreview = () => {
-  const { resumeData } = useContext(ResumeContext);
+  const { resumeData } = useResumeContext();
   const [selectedTemplate, setSelectedTemplate] = useState('modern');
 
   const renderTemplate = () => {

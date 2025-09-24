@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { AppContext } from '../context/AppContext';
+import { useAppContext } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
 import './NavBar.css';
 
 function NavBar() {
-  const { aiMode, toggleAiMode } = useContext(AppContext);
+  const { aiMode, toggleAiMode } = useAppContext();
   const { session, signOut } = useAuth();
   const navigate = useNavigate();
 
