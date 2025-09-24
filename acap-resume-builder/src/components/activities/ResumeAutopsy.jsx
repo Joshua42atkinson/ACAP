@@ -71,7 +71,11 @@ const ResumeAutopsy = () => {
           <li>Can I tell what kind of job you're looking for within 5 seconds?</li>
           <li>Is it easy to see your key accomplishments?</li>
         </ul>
-        <p><strong>Your task:</strong> Go through your resume text above. Identify and reflect on statements that are "duties" (e.g., "Responsible for filing reports") versus "accomplishments" (e.g., "Streamlined filing system, saving 3 hours per week").</p>
+        <p><strong>Your task:</strong> Go through your resume text above. Identify and reflect on statements that are "duties" (e.g., "Responsible for filing reports") versus "accomplishments" (e.g., "Streamlined filing system, saving 3 hours per week"). Use the space below for your notes.</p>
+        <textarea
+          style={{ width: '100%', minHeight: '150px', marginTop: '10px', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }}
+          placeholder="Jot down your notes and observations here. Which parts are duties? Which are accomplishments?"
+        />
       </div>
 
       <hr style={{ margin: '2rem 0' }} />

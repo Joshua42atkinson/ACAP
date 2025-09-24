@@ -62,6 +62,14 @@ const ExperienceInventory = () => {
           </ul>
         )}
       </div>
+
+      <hr style={{ margin: '2rem 0' }} />
+
+      {/* Yin (Emotional Support) - Reframing Exercise */}
+      <div className="reframing-exercise" style={{ marginTop: '20px' }}>
+        <h3>Reframe Your Perspective</h3>
+        <p>"Many of us are taught not to 'brag.' But stating a factual result isn't bragging; it's providing evidence of your value. Look at your PAR statements. This isn't arrogance; it's the story of your competence. How does it feel to see your accomplishments laid out so clearly?"</p>
+      </div>
     </div>
   );
 };

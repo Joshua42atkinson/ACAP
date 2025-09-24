@@ -70,6 +70,14 @@ const TailoringSimulation = () => {
           />
         </div>
       </div>
+
+      <hr style={{ margin: '2rem 0' }} />
+
+      {/* Yin (Emotional Support) - Low-Stakes Rationale */}
+      <div className="low-stakes-rationale" style={{ marginTop: '20px' }}>
+        <h3>This is a Practice Zone</h3>
+        <p>"The 'Alignment Score' isn't a judgment; it's a guide. The goal here is to experiment and build the muscle memory of tailoring your resume. There's no pressure to get it perfect on the first try."</p>
+      </div>
     </div>
   );
 };
