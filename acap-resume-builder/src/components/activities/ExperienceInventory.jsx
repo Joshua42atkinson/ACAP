@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useResumeContext } from '../../context/ResumeContext';
 
 const ExperienceInventory = () => {
-  const [parStatements, setParStatements] = useState([]);
-  const [currentProblem, setCurrentProblem] = useState('');
-  const [currentAction, setCurrentAction] = useState('');
-  const [currentResult, setCurrentResult] = useState('');
+  const { resumeData, setResumeData } = useResumeContext();
+  const { parStatements, currentProblem, currentAction, currentResult } = resumeData;
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setResumeData(prevData => ({
+        ...prevData,
+        [name]: value
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,11 +25,13 @@ const ExperienceInventory = () => {
       result: currentResult,
       id: Date.now() // simple unique id
     };
-    setParStatements([...parStatements, newStatement]);
-    // Clear form
-    setCurrentProblem('');
-    setCurrentAction('');
-    setCurrentResult('');
+    setResumeData(prevData => ({
+        ...prevData,
+        parStatements: [...prevData.parStatements, newStatement],
+        currentProblem: '',
+        currentAction: '',
+        currentResult: ''
+    }));
   };
 
   return (
@@ -33,15 +42,15 @@ const ExperienceInventory = () => {
       <form onSubmit={handleSubmit} style={{ border: '1px solid #ccc', padding: '15px', borderRadius: '5px' }}>
         <div style={{ marginBottom: '10px' }}>
           <label><strong>Problem:</strong> What was a challenge you faced?</label>
-          <input type="text" value={currentProblem} onChange={(e) => setCurrentProblem(e.target.value)} style={{ width: '100%', padding: '8px' }} />
+          <input type="text" name="currentProblem" value={currentProblem} onChange={handleInputChange} style={{ width: '100%', padding: '8px' }} />
         </div>
         <div style={{ marginBottom: '10px' }}>
           <label><strong>Action:</strong> What specific action did you take?</label>
-          <input type="text" value={currentAction} onChange={(e) => setCurrentAction(e.target.value)} style={{ width: '100%', padding: '8px' }} />
+          <input type="text" name="currentAction" value={currentAction} onChange={handleInputChange} style={{ width: '100%', padding: '8px' }} />
         </div>
         <div style={{ marginBottom: '10px' }}>
           <label><strong>Result:</strong> What was the positive, measurable outcome?</label>
-          <input type="text" value={currentResult} onChange={(e) => setCurrentResult(e.target.value)} style={{ width: '100%', padding: '8px' }} />
+          <input type="text" name="currentResult" value={currentResult} onChange={handleInputChange} style={{ width: '100%', padding: '8px' }} />
         </div>
         <button type="submit">Add to Inventory</button>
       </form>

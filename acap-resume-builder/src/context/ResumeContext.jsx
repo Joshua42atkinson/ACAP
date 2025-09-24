@@ -32,6 +32,10 @@ export const ResumeProvider = ({ children }) => {
       },
     ],
     skills: [''],
+    parStatements: [],
+    currentProblem: '',
+    currentAction: '',
+    currentResult: '',
   };
 
   const [resumeData, setResumeData] = useState(initialData);
