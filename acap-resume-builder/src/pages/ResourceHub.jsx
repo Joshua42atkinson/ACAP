@@ -18,8 +18,9 @@ function ResourceHub() {
 
       <h2>Resume Tools</h2>
       <ul>
-        <li>Downloadable Resume Templates (coming soon)</li>
-        <li>Action Verb Lists (coming soon)</li>
+        <li><a href="/modern-resume-template.md" download>Modern Resume Template</a></li>
+        <li><a href="/experience-inventory-worksheet.md" download>Experience Inventory Worksheet</a></li>
+        <li><a href="/powerful-action-verbs.md" download>List of Powerful Action Verbs</a></li>
         <li>Peer Review Rubric (coming soon)</li>
       </ul>
 

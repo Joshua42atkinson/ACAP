@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import ChatWindow from '../components/ChatWindow';
 import { module1Content } from '../chapters/module1';
 
 // Import activity components
@@ -32,7 +31,9 @@ const Chapter = () => {
   return (
     <div>
       <h2>{chapterData.title}</h2>
-      <ChatWindow script={chapterData.script} />
+      <p><em>{chapterData.objective}</em></p>
+      <hr />
+      <div dangerouslySetInnerHTML={{ __html: chapterData.content }} />
       {ActivityComponent && <ActivityComponent />}
     </div>
   );
