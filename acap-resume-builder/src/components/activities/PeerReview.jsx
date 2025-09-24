@@ -37,6 +37,11 @@ const PeerReview = () => {
   return (
     <div className="peer-review">
       <h3>Guild Support: Peer Review</h3>
+
+      <div className="community-prompt" style={{ background: '#eef2f7', padding: '15px', borderRadius: '5px', margin: '15px 0' }}>
+        <p><strong>A Note on Community:</strong> "The job search can feel isolating. This exercise is about building a supportive community. When you give feedback, focus on being helpful and constructive. When you receive it, remember that your peers are on this quest with you. The goal is for everyone to finish with a stronger resume and the knowledge that they aren't in this alone."</p>
+      </div>
+
       {!submitted ? (
         <div>
           <p>The final step in this module is to give and receive feedback. When you're ready, submit your rewritten experience section for anonymous review by two of your peers.</p>
