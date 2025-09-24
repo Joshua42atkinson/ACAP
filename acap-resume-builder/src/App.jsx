@@ -14,6 +14,7 @@ import Chapter from './pages/Chapter';
 import Auth from './pages/Auth';
 import ResourceHub from './pages/ResourceHub';
 import CommunityForum from './pages/CommunityForum';
+import Game from './pages/Game';
 
 import './App.css';
 
@@ -48,6 +49,7 @@ function AppContent() {
             <Route path="/forum" element={<CommunityForum />} />
 
             <Route path="/auth" element={<Auth />} />
+            <Route path="/game" element={<Game />} />
           </Routes>
         </main>
     </>
