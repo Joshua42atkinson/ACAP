@@ -41,6 +41,40 @@ export const ResumeProvider = ({ children }) => {
   const [resumeData, setResumeData] = useState(initialData);
   const [isSaving, setIsSaving] = useState(false);
 
+  const updateResumeData = (section, index, field, value) => {
+    setResumeData(prevData => {
+      const newData = { ...prevData };
+
+      if (section === 'personalInfo') {
+        newData.personalInfo = { ...prevData.personalInfo, [field]: value };
+      } else if (section === 'skills') {
+        newData.skills = typeof value === 'string' ? value.split(',').map(s => s.trim()) : prevData.skills;
+      } else if (section === 'experience' || section === 'education') {
+        newData[section] = prevData[section].map((item, i) => {
+          if (i === index) {
+            return { ...item, [field]: value };
+          }
+          return item;
+        });
+      }
+
+      return newData;
+    });
+  };
+
+  const addResumeEntry = (section) => {
+    setResumeData(prevData => {
+      const newEmptyItem = section === 'experience'
+        ? { jobTitle: '', company: '', location: '', startDate: '', endDate: '', description: '' }
+        : { degree: '', school: '', location: '', graduationYear: '' };
+
+      return {
+        ...prevData,
+        [section]: [...prevData[section], newEmptyItem]
+      };
+    });
+  };
+
   const saveResumeToSupabase = async () => {
     setIsSaving(true);
     try {
@@ -83,7 +117,7 @@ export const ResumeProvider = ({ children }) => {
   }, []);
 
   return (
-    <ResumeContext.Provider value={{ resumeData, setResumeData, saveResumeToSupabase, isSaving }}>
+    <ResumeContext.Provider value={{ resumeData, setResumeData, updateResumeData, addResumeEntry, saveResumeToSupabase, isSaving }}>
       {children}
     </ResumeContext.Provider>
   );

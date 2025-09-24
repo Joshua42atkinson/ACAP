@@ -1,0 +1,9 @@
+# supabase/config.toml
+
+[functions.ai-assist]
+  handler = "file://./functions/ai-assist/index.ts"
+  memory = 256
+  timeout = 10
+  verify_jwt = false
+  [functions.ai-assist.environment]
+    AI_API_KEY = "YOUR_API_KEY"
