@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { AppProvider, AppContext } from './context/AppContext';
-import { ResumeProvider, ResumeContext } from './context/ResumeContext';
+import { AppProvider, useAppContext } from './context/AppContext';
+import { ResumeProvider, useResumeContext } from './context/ResumeContext';
 
 import NavBar from './components/NavBar';
 import AIAssistant from './components/AIAssistant';
@@ -18,8 +18,8 @@ import CommunityForum from './pages/CommunityForum';
 import './App.css';
 
 function AppContent() {
-  const { aiMode } = useContext(AppContext);
-  const { resumeData } = useContext(ResumeContext);
+  const { aiMode } = useAppContext();
+  const { resumeData } = useResumeContext();
 
   return (
     <>

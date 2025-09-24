@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import ResumePreview from './ResumePreview';
 import AIAssistant from './AIAssistant';
-import { ResumeContext } from '../context/ResumeContext';
-import { AppContext } from '../context/AppContext';
+import { useResumeContext } from '../context/ResumeContext';
+import { useAppContext } from '../context/AppContext';
 
 const ChapterLayout = () => {
   const { chapterId } = useParams();
-  const { resumeData, saveResumeToSupabase, isSaving } = useContext(ResumeContext);
-  const { aiMode } = useContext(AppContext);
+  const { resumeData, saveResumeToSupabase, isSaving } = useResumeContext();
+  const { aiMode } = useAppContext();
   const themeClass = `chapter-theme-${chapterId}`;
 
   return (

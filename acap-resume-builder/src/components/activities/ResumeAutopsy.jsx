@@ -59,6 +59,33 @@ const ResumeAutopsy = () => {
           </pre>
         </div>
       )}
+
+      <hr style={{ margin: '2rem 0' }} />
+
+      {/* "Red Pen" Test Section */}
+      <div className="red-pen-test" style={{ marginTop: '20px' }}>
+        <h3>The "Red Pen" Test</h3>
+        <p>Read your resume from the perspective of a hiring manager who has 15 seconds to make a decision. Ask yourself:</p>
+        <ul>
+          <li>What is the very first thing that catches my eye?</li>
+          <li>Can I tell what kind of job you're looking for within 5 seconds?</li>
+          <li>Is it easy to see your key accomplishments?</li>
+        </ul>
+        <p><strong>Your task:</strong> Go through your resume text above. Identify and reflect on statements that are "duties" (e.g., "Responsible for filing reports") versus "accomplishments" (e.g., "Streamlined filing system, saving 3 hours per week").</p>
+      </div>
+
+      <hr style={{ margin: '2rem 0' }} />
+
+      {/* Yin (Emotional Support) - Journal Prompt */}
+      <div className="journal-prompt" style={{ marginTop: '20px' }}>
+        <h3>Private Journal</h3>
+        <p>This resume represents a chapter of your professional life. Before you rewrite it, take a moment to reflect. This is for your eyes only.</p>
+        <p><strong>Prompt:</strong> "What are three things on this document I am genuinely proud of? What's one experience listed here that taught me a valuable lesson, even if it was difficult at the time?"</p>
+        <textarea
+          style={{ width: '100%', minHeight: '150px', marginTop: '10px', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }}
+          placeholder="Write your private thoughts here..."
+        />
+      </div>
     </div>
   );
 };
