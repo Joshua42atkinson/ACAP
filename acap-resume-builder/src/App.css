@@ -1,9 +1,10 @@
 :root {
-  --primary-color: #4A5C43; /* Deep forest green */
-  --secondary-color: #A4B494; /* Sage green */
-  --background-color: #F4F3EE; /* Light beige/off-white */
+  --primary-color: #004a99; /* A professional blue */
+  --secondary-color: #6c757d; /* A neutral grey */
+  --background-color: #f8f9fa; /* A very light grey */
   --text-color: #333;
-  --border-color: #DDE2C6; /* Light olive green */
+  --border-color: #dee2e6; /* A light grey for borders */
+  --accent-color: #007bff; /* A brighter blue for links and highlights */
 }
 
 body {
