@@ -1,7 +1,10 @@
 import React from 'react';
+import Content from '../Content';
+import { module1Content } from '../../chapters/module1';
 import { useResumeContext } from '../../context/ResumeContext';
 
 const ExperienceInventory = () => {
+  const activityData = module1Content[3];
   const { resumeData, setResumeData } = useResumeContext();
   const { parStatements, currentProblem, currentAction, currentResult } = resumeData;
 
@@ -36,6 +39,7 @@ const ExperienceInventory = () => {
 
   return (
     <div className="experience-inventory">
+      <Content content={activityData.content} />
       <h3>The Experience Inventory</h3>
       <p>For each key duty you identified in the last step, tell a mini-story using the "Problem-Action-Result" (PAR) framework.</p>
 

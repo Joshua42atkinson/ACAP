@@ -1,6 +1,10 @@
 import React, { useState, useMemo } from 'react';
+import Content from '../Content';
+import Keywords from '../Keywords';
+import { module1Content } from '../../chapters/module1';
 
 const JobDescriptionAnalysis = () => {
+  const activityData = module1Content[2];
   const [jobDescription, setJobDescription] = useState('');
   const [highlights, setHighlights] = useState({
     hardSkills: [],
@@ -40,6 +44,8 @@ const JobDescriptionAnalysis = () => {
 
   return (
     <div className="job-description-analysis">
+      <Content content={activityData.content} />
+      <Keywords keywords={activityData.keywords} />
       <h3>Deconstruct the Job Description</h3>
       <p>Paste the full text of a job description you're interested in below. Then, use the highlighters to identify the key skills and responsibilities.</p>
 

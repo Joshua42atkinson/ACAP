@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { module1Content } from '../chapters/module1';
+import Content from '../components/Content';
 
 // Import activity components
 import ResumeAutopsy from '../components/activities/ResumeAutopsy';
@@ -33,7 +34,6 @@ const Chapter = () => {
       <h2>{chapterData.title}</h2>
       <p><em>{chapterData.objective}</em></p>
       <hr />
-      <div dangerouslySetInnerHTML={{ __html: chapterData.content }} />
       {ActivityComponent && <ActivityComponent />}
     </div>
   );

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import Content from '../Content';
+import { module1Content } from '../../chapters/module1';
 
 const ResumeAutopsy = () => {
+  const activityData = module1Content[1];
   const [resumeText, setResumeText] = useState('');
   const [analysis, setAnalysis] = useState(null);
 
@@ -39,6 +42,7 @@ const ResumeAutopsy = () => {
 
   return (
     <div className="resume-autopsy">
+      <Content content={activityData.content} />
       <h3>Resume Upload & Analysis</h3>
       <p>Upload your resume (.txt format) to begin the analysis.</p>
       <input type="file" accept=".txt" onChange={handleFileChange} />

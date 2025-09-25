@@ -1,12 +1,58 @@
-.gagne-event {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 24px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+/* General App Styles */
+.app {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
 }
 
-.gagne-event h2 {
+/* Activity Content Styles */
+.activity-content {
+  background-color: #f9f9f9;
+  border-left: 4px solid #007bff;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+
+.resume-example, .job-description {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.action-verbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+/* Keywords Component Styles */
+.keywords-container {
+  background-color: #e7f3ff;
+  border: 1px solid #b3d7ff;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+.keywords-container h4 {
   margin-top: 0;
-  color: #333;
+  color: #004085;
+}
+
+.keywords-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.keyword-item {
+  background-color: #cce5ff;
+  color: #004085;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.9em;
 }
