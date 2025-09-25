@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Content from '../Content';
+import { module1Content } from '../../chapters/module1';
 
 // Placeholder data - in a real app, this would come from context or props
 const placeholderOriginalResume = `
@@ -18,6 +20,7 @@ const placeholderParStatements = [
 const placeholderKeywords = ['customer service', 'sales', 'training', 'software'];
 
 const TailoringSimulation = () => {
+  const activityData = module1Content[4];
   const [editedText, setEditedText] = useState('');
   const [alignmentScore, setAlignmentScore] = useState(0);
 
@@ -35,6 +38,7 @@ const TailoringSimulation = () => {
 
   return (
     <div className="tailoring-simulation">
+      <Content content={activityData.content} />
       <h3>The Tailoring Simulation</h3>
       <p>This is your crafting challenge! Rewrite your experience section on the right. Drag in your powerful PAR statements and integrate the keywords you found. Watch your "Alignment Score" update in real-time.</p>
 

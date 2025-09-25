@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Content from '../Content';
+import { module1Content } from '../../chapters/module1';
 
 // Placeholder data for peer submissions
 const peerSubmissions = [
@@ -21,6 +23,7 @@ const peerSubmissions = [
 ];
 
 const PeerReview = () => {
+  const activityData = module1Content[5];
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmitForReview = () => {
@@ -36,6 +39,7 @@ const PeerReview = () => {
 
   return (
     <div className="peer-review">
+      <Content content={activityData.content} />
       <h3>Guild Support: Peer Review</h3>
 
       <div className="community-prompt" style={{ background: '#eef2f7', padding: '15px', borderRadius: '5px', margin: '15px 0' }}>
