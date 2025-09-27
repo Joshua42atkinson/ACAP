@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { moduleData } from '../course-data';
+import Module2 from './Module2';
+import Module3 from './Module3';
 
 function Module() {
   const { moduleId } = useParams();
@@ -97,7 +99,10 @@ function Module() {
       <p><em>{module.objective}</em></p>
       <hr />
 
-      {moduleId === '1' ? renderModule1Content() : <p>Module content coming soon...</p>}
+      {moduleId === '1' && renderModule1Content()}
+      {moduleId === '2' && <Module2 />}
+      {moduleId === '3' && <Module3 />}
+      {!['1', '2', '3'].includes(moduleId) && <p>Module content coming soon...</p>}
 
       <br />
       <Link to="/modules">Back to Course Modules</Link>
