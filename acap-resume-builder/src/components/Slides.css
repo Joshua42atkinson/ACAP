@@ -1,0 +1,39 @@
+.presentation-mode {
+  height: 100%;
+}
+
+.presentation-mode .slide {
+  background: #ffffff;
+  color: #000000;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+}
+
+.presentation-mode .control-arrow {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+  height: 50px;
+  top: 50%;
+  margin-top: -25px;
+}
+
+.presentation-mode .control-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.presentation-mode .control-dots .dot {
+  background: #ccc;
+  box-shadow: none;
+}
+
+.presentation-mode .control-dots .dot.selected,
+.presentation-mode .control-dots .dot:hover {
+  background: #333;
+}

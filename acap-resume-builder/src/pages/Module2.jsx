@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import Slides from '../components/Slides';
 import './Module2.css';
 
 const rubricItemsData = [
@@ -25,34 +26,6 @@ function Module2() {
     // State for STAR Story Builder
     const [starStory, setStarStory] = useState({ s: '', t: '', a: '', r: '' });
     const [showStarStory, setShowStarStory] = useState(false);
-
-    // State for mobile menu
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    // Refs for smooth scrolling
-    const introductionRef = useRef(null);
-    const resumeRef = useRef(null);
-    const coverLetterRef = useRef(null);
-    const starMethodRef = useRef(null);
-    const wrapUpRef = useRef(null);
-
-    const sectionRefs = {
-        introduction: introductionRef,
-        resume: resumeRef,
-        'cover-letter': coverLetterRef,
-        'star-method': starMethodRef,
-        'wrap-up': wrapUpRef,
-    };
-
-    const handleNavClick = (id) => {
-        const ref = sectionRefs[id];
-        if (ref && ref.current) {
-            ref.current.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-        setIsMobileMenuOpen(false);
-    };
 
     // --- Resume Rubric Logic ---
     const handleRubricChange = (index) => {
@@ -121,40 +94,18 @@ function Module2() {
 
     return (
         <div className="antialiased">
-            {/* Header & Navigation */}
             <header className="module-header sticky top-0 z-50 shadow-md">
                 <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
                     <div>
                         <h1 className="text-xl md:text-2xl font-bold text-gray-800">ACAP Module 2</h1>
                         <p className="text-sm text-gray-600">Crafting Your Career Narrative</p>
                     </div>
-                    <div className="hidden md:flex space-x-8">
-                        <a href="#introduction" onClick={(e) => { e.preventDefault(); handleNavClick('introduction');}} className="nav-link pb-1">Introduction</a>
-                        <a href="#resume" onClick={(e) => { e.preventDefault(); handleNavClick('resume');}} className="nav-link pb-1">Resumes</a>
-                        <a href="#cover-letter" onClick={(e) => { e.preventDefault(); handleNavClick('cover-letter');}} className="nav-link pb-1">Cover Letters</a>
-                        <a href="#star-method" onClick={(e) => { e.preventDefault(); handleNavClick('star-method');}} className="nav-link pb-1">STAR Method</a>
-                        <a href="#wrap-up" onClick={(e) => { e.preventDefault(); handleNavClick('wrap-up');}} className="nav-link pb-1">Wrap Up</a>
-                    </div>
-                    <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500">
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                    </button>
                 </nav>
-                {isMobileMenuOpen && (
-                    <div className="md:hidden px-6 pb-4">
-                        <a href="#introduction" onClick={(e) => { e.preventDefault(); handleNavClick('introduction');}} className="block py-2 text-center nav-link">Introduction</a>
-                        <a href="#resume" onClick={(e) => { e.preventDefault(); handleNavClick('resume');}} className="block py-2 text-center nav-link">Resumes</a>
-                        <a href="#cover-letter" onClick={(e) => { e.preventDefault(); handleNavClick('cover-letter');}} className="block py-2 text-center nav-link">Cover Letters</a>
-                        <a href="#star-method" onClick={(e) => { e.preventDefault(); handleNavClick('star-method');}} className="block py-2 text-center nav-link">STAR Method</a>
-                        <a href="#wrap-up" onClick={(e) => { e.preventDefault(); handleNavClick('wrap-up');}} className="block py-2 text-center nav-link">Wrap Up</a>
-                    </div>
-                )}
             </header>
 
-            {/* Main Content */}
             <main className="container mx-auto p-4 md:p-8">
-
-                {/* Introduction Section */}
-                <section ref={introductionRef} id="introduction" className="mb-12 scroll-mt-24">
+                <Slides>
+                    {/* Introduction Slide */}
                     <div className="section-card rounded-lg p-6 md:p-8">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Module 2: Introduction</h2>
                         <p className="text-lg text-gray-600 mb-4">Welcome to the second module in the Job Readiness Workshop Series. In Module 1, you identified your skills and career interests. Now, it's time to learn how to communicate your value effectively to potential employers. This module is all about telling your professional story in a way that gets you noticed.</p>
@@ -169,10 +120,8 @@ function Module2() {
                         </div>
                         <p className="mt-4 text-gray-600">This section provides the foundational knowledge for crafting job application materials that stand out. We will break down each component—the resume, the cover letter, and interview stories—into simple, manageable steps. By the end, you'll have the tools and confidence to present yourself as the ideal candidate for the jobs you want.</p>
                     </div>
-                </section>
 
-                {/* Resume Section */}
-                <section ref={resumeRef} id="resume" className="mb-12 scroll-mt-24">
+                    {/* Resume Slide */}
                     <div className="section-card rounded-lg p-6 md:p-8">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Part 1: The Modern Resume</h2>
                         <p className="text-gray-600 mb-6">Think of your resume not as a history of your past jobs, but as an advertisement for your future career. Its goal is to get you an interview. In today's job market, especially here in Maine where community and specific skills are key, a generic resume won't cut it. This section will teach you how to tailor your resume to highlight your most relevant skills and accomplishments for each specific job you apply for.</p>
@@ -214,10 +163,8 @@ function Module2() {
                             </div>
                         </div>
                     </div>
-                </section>
 
-                {/* Cover Letter Section */}
-                <section ref={coverLetterRef} id="cover-letter" className="mb-12 scroll-mt-24">
+                    {/* Cover Letter Slide */}
                     <div className="section-card rounded-lg p-6 md:p-8">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Part 2: The Compelling Cover Letter</h2>
                         <p className="text-gray-600 mb-6">If the resume is the advertisement, the cover letter is the personal introduction. It's your chance to connect with a real person, show your personality, and explain why you are genuinely interested in *this* specific job at *this* specific company. It bridges the gap between your past experience and the company's future needs. Here, we'll focus on crafting a letter that is professional, persuasive, and tailored to the employer.</p>
@@ -263,10 +210,8 @@ function Module2() {
                             <div className={`mt-4 text-center h-6 ${coverLetterFeedback.type === 'correct' ? 'feedback-correct' : 'feedback-incorrect'}`}>{coverLetterFeedback.text}</div>
                         </div>
                     </div>
-                </section>
 
-                {/* STAR Method Section */}
-                <section ref={starMethodRef} id="star-method" className="mb-12 scroll-mt-24">
+                    {/* STAR Method Slide */}
                     <div className="section-card rounded-lg p-6 md:p-8">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Part 3: The STAR Method</h2>
                         <p className="text-gray-600 mb-6">Your resume and cover letter get you the interview. The STAR method helps you succeed *in* the interview. When an interviewer says, "Tell me about a time when...", they are asking for a story that proves you have the skills you claim. The STAR method provides a simple, powerful framework for telling that story clearly and effectively. It's a way to turn your experiences into compelling evidence of your abilities.</p>
@@ -333,10 +278,8 @@ function Module2() {
                             )}
                         </div>
                     </div>
-                </section>
 
-                {/* Wrap Up Section */}
-                <section ref={wrapUpRef} id="wrap-up" className="scroll-mt-24">
+                    {/* Wrap Up Slide */}
                     <div className="section-card rounded-lg p-6 md:p-8 text-center">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Module 2: Wrap Up & Next Steps</h2>
                         <p className="text-gray-600 mb-6 max-w-3xl mx-auto">Congratulations on completing Module 2! You now have a clear framework for building a powerful resume, writing a persuasive cover letter, and telling compelling stories in your interviews. These are the core tools you'll use to market yourself effectively in your job search.</p>
@@ -350,8 +293,7 @@ function Module2() {
                         </div>
                         <p className="mt-6 text-gray-600">Your next step is to apply what you've learned. Start drafting your new resume and a template for your cover letters. Practice building STAR stories for common interview questions. In Module 3, we will focus on networking and interview skills to put these amazing materials to use.</p>
                     </div>
-                </section>
-
+                </Slides>
             </main>
         </div>
     );
