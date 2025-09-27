@@ -11,11 +11,11 @@ export const moduleData = {
     ]
   },
   '2': {
-    title: 'Module 2: Build Your Network',
-    objective: 'Develop skills to proactively network and find opportunities.',
+    title: 'Module 2: Crafting Your Career Narrative',
+    objective: 'Learn how to communicate your value effectively to potential employers.',
   },
   '3': {
-    title: 'Module 3: Demonstrate Your Value',
-    objective: 'Master interviewing and follow-up techniques.',
+    title: 'Module 3: Networking and Interviewing',
+    objective: 'Learn to network effectively, master interview skills, and follow-up professionally.',
   }
 };

@@ -1,0 +1,56 @@
+.module-header {
+    background-color: #EAE8E1;
+}
+.section-card {
+    background-color: #FFFFFF;
+    border: 1px solid #EAE8E1;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+.btn-primary {
+    background-color: #4A6C84;
+    color: #FFFFFF;
+    transition: background-color 0.3s;
+}
+.btn-primary:hover {
+    background-color: #3A566A;
+}
+.btn-secondary {
+    background-color: #EAE8E1;
+    color: #3D3D3D;
+    transition: background-color 0.3s;
+}
+.btn-secondary:hover {
+    background-color: #D9D6CB;
+}
+.progress-bar-bg {
+    background-color: #EAE8E1;
+}
+.progress-bar-fill {
+    background-color: #4A6C84;
+    transition: width 0.5s ease-in-out;
+}
+.nav-link {
+    transition: color 0.3s, border-bottom-color 0.3s;
+    border-bottom: 2px solid transparent;
+}
+.nav-link:hover, .nav-link.active {
+    color: #4A6C84;
+    border-bottom-color: #4A6C84;
+}
+.interactive-input {
+    border: 1px solid #D9D6CB;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.interactive-input:focus {
+    outline: none;
+    border-color: #4A6C84;
+    box-shadow: 0 0 0 2px rgba(74, 108, 132, 0.2);
+}
+.feedback-correct {
+    color: #3A566A;
+    font-weight: 500;
+}
+.feedback-incorrect {
+    color: #993D3D;
+    font-weight: 500;
+}
